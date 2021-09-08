@@ -37,7 +37,6 @@ class Brime extends AbstractProvider
     protected function checkResponse(ResponseInterface $response, $data): void
     {
         if ($response->getStatusCode() >= 400) {
-            dump($response, $data);
             throw new Exception($response->getBody());
         }
     }
