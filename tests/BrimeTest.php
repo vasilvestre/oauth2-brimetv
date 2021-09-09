@@ -40,4 +40,11 @@ class BrimeTest extends TestCase
         $uri = parse_url($url);
         $this->assertEquals(Brime::OAUTH_TOKEN_PATH, $uri['path']);
     }
+
+    public function testGetBaseAuthorizationUrl()
+    {
+        $url = $this->provider->getAuthorizationUrl();
+        $uri = parse_url($url);
+        $this->assertEquals(Brime::AUTHORIZE_PATH, $uri['path']);
+    }
 }

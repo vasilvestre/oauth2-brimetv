@@ -14,12 +14,13 @@ class Brime extends AbstractProvider
 
     public const USER_RESOURCE = '/v1/account/me';
     public const OAUTH_TOKEN_PATH = '/oauth/token';
+    public const AUTHORIZE_PATH = '/authorize';
 
     private $basicUrl = 'https://auth.brime.tv';
 
     public function getBaseAuthorizationUrl(): string
     {
-        return $this->basicUrl.'/authorize';
+        return $this->basicUrl.self::AUTHORIZE_PATH;
     }
 
     public function getBaseAccessTokenUrl(array $params): string
