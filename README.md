@@ -77,6 +77,7 @@ $ ./vendor/bin/phpunit
 ## Credits
 
 - [Valentin Silvestre](https://github.com/vasilvestre)
+- [Nicolas Mylle](https://github.com/artandor)
 
 ## License
 

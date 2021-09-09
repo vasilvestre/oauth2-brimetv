@@ -18,7 +18,12 @@ class BrimeResourceOwner implements ResourceOwnerInterface
 
     public function getId()
     {
-        return $this->getValueByKey($this->response, 'id');
+        return $this->getValueByKey($this->response, 'xid');
+    }
+
+    public function getEmail()
+    {
+        return $this->getValueByKey($this->response, 'email');
     }
 
     public function toArray()

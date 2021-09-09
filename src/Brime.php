@@ -12,7 +12,7 @@ class Brime extends AbstractProvider
 {
     use BearerAuthorizationTrait;
 
-    private $basicUrl = "https://auth.brime.tv/oauth";
+    private $basicUrl = "https://auth.brime.tv";
 
     public function getBaseAuthorizationUrl(): string
     {
@@ -21,17 +21,17 @@ class Brime extends AbstractProvider
 
     public function getBaseAccessTokenUrl(array $params): string
     {
-        return $this->basicUrl . "/token";
+        return $this->basicUrl . "/oauth/token";
     }
 
     public function getResourceOwnerDetailsUrl(AccessToken $token): string
     {
-        return $this->basicUrl . "/userinfo";
+        return "https://api.brime.tv/v1/account/me";
     }
 
     protected function getDefaultScopes(): array
     {
-        return [];
+        return ['email'];
     }
 
     protected function checkResponse(ResponseInterface $response, $data): void
