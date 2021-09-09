@@ -12,21 +12,24 @@ class Brime extends AbstractProvider
 {
     use BearerAuthorizationTrait;
 
-    private $basicUrl = "https://auth.brime.tv";
+    public const USER_RESOURCE = '/v1/account/me';
+    public const OAUTH_TOKEN_PATH = '/oauth/token';
+
+    private $basicUrl = 'https://auth.brime.tv';
 
     public function getBaseAuthorizationUrl(): string
     {
-        return $this->basicUrl . "/authorize";
+        return $this->basicUrl.'/authorize';
     }
 
     public function getBaseAccessTokenUrl(array $params): string
     {
-        return $this->basicUrl . "/oauth/token";
+        return $this->basicUrl.self::OAUTH_TOKEN_PATH;
     }
 
     public function getResourceOwnerDetailsUrl(AccessToken $token): string
     {
-        return "https://api.brime.tv/v1/account/me";
+        return 'https://api.brime.tv'.self::USER_RESOURCE;
     }
 
     protected function getDefaultScopes(): array
